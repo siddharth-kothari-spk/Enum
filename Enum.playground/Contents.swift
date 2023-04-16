@@ -22,3 +22,22 @@ Swift enumeration cases don’t have an integer value set by default, unlike lan
 var direction = Direction.north
 
 print(type(of: direction)) // prints "Direction"
+
+
+// --------------------------------------------------------------------------------------------
+
+// Iterating over enum cases
+
+enum Beverage: CaseIterable {
+    case coffee, tea, juice
+}
+
+let numberOfChoices = Beverage.allCases.count
+print("\(numberOfChoices) beverages available") // // Prints "3 beverages available"
+
+
+for beverage in Beverage.allCases {
+    print(beverage)
+}
+
+// --------------------------------------------------------------------------------------------
