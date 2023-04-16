@@ -73,3 +73,41 @@ case let .qrCode(productCode):
 }
 
 // --------------------------------------------------------------------------------------------
+
+// Raw values
+//  As an alternative to associated values, enumeration cases can come prepopulated with default values (called raw values), which are all of the same type.
+
+enum ASCIIControlCharacter: Character {
+    case tab = "\t"
+    case lineFeed = "\n"
+    case carriageReturn = "\r"
+}
+
+// Implicitly Assigned Raw Values
+
+enum SolarPlanet: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+//SolarPlanet.mercury has an explicit raw value of 1, SolarPlanet.venus has an implicit raw value of 2
+
+enum CompassPoint: String {
+    case north, south, east, west
+}
+// CompassPoint.south has an implicit raw value of "south"
+
+let earthsOrder = SolarPlanet.earth.rawValue
+// earthsOrder is 3
+print(type(of: earthsOrder)) // Int
+
+
+let sunsetDirection = CompassPoint.west.rawValue
+// sunsetDirection is "west"
+
+
+// Initializing from a Raw Value
+let possiblePlanet = SolarPlanet(rawValue: 7)
+// possiblePlanet is of type Planet? and equals Planet.uranus
+
+// Note :The raw value initializer is a failable initializer, because not every raw value will return an enumeration case.
+
+// --------------------------------------------------------------------------------------------
