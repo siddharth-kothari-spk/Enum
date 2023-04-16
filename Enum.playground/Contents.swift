@@ -141,3 +141,27 @@ func evaluate(_ expression: ArithmeticExpression) -> Int {
 
 print(evaluate(product))
 // --------------------------------------------------------------------------------------------
+
+
+// Enum Methods and Computed Properties
+enum TemperatureUnit {
+    case celsius(Double)
+    case fahrenheit(Double)
+}
+
+func convert(_ value: TemperatureUnit) -> Double {
+        switch value {
+        case let .celsius(value):
+            return (value * 9 / 5) + 32
+        case let .fahrenheit(value):
+            return (value - 32) * 5 / 9
+        }
+}
+
+var temp = TemperatureUnit.celsius(32.0)
+print(convert(temp.self)) // 89.6
+
+temp = TemperatureUnit.fahrenheit(200)
+print(convert(temp.self)) // 93.33333
+
+// --------------------------------------------------------------------------------------------
